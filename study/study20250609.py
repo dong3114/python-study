@@ -9,7 +9,7 @@ for i in range(dight_num):
   num = n // (10 ** (dight_num - 1 - i))
   result += num
   n = n % (10 ** (dight_num - 1 - i))
-print(f"뒷자리부터 해체 한 방식 답: {result}")
+print(f"앞자리부터 해체 한 방식 답: {result}")
 
 # 문자열 추출 하는 방식
 n = 4586216
@@ -37,7 +37,6 @@ for i in range(len(abc)):
   text = text.replace(abc[i], "")
 print(text)
 
-
 # 문제3. 수 크기 비교하기
 # 두 개의 숫자를 입력받아 큰 수와 작은 수를 차례대로 출력하세요.
 # (input()함수 활용) )
@@ -51,7 +50,7 @@ if type(second_num) == int:
   num.append(second_num)
 num.sort()
 print(f"오름차순 정렬: {num}")
-num.sort(reverse=True)
+num.reverse()
 print(f"내림차순 정렬: {num}")
 
 # 문제4. 문자열 길이 반환하기
@@ -65,3 +64,26 @@ if user_input == "":
 else:
   number = len(str(user_input))
   print(number)
+
+# 문제5 총 합계 구하기
+# 0부터 사용자가 입력한 숫자 n까지의 합을 구해서 출력하세요.
+user_input = int(input("문5. 숫자를 입력하시오: "))
+sum = 0
+if user_input == "":
+  print("숫자를 써주세요")
+else:
+  for i in range(0,user_input + 1):
+    sum += i
+print(sum)
+
+# 문제6 짝수 합 구하기
+# 사용자가 입력한 숫자 n까지의 짝수 합을 출력하세요.
+# 입력이 0일 경우 종료합니다.
+user_input = int(input("문6. 숫자를 입력하시오: "))
+sum = 0
+if user_input == 0:
+  print("종료합니다")
+else:
+  for i in range(0,user_input + 1,2):
+    sum += i
+  print(f"출력: 1부터 {user_input}까지의 짝수의 합은 {sum} 입니다.")
