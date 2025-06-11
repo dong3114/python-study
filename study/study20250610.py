@@ -116,16 +116,26 @@ weight_standard = 100
 
 # HACCP 미검사 품목 리스트
 def untested(factory_products,haccp_tested):
-     untested_products = {}
-     for i in factory_products.keys():
-          if i not in haccp_tested:
-               untested_products[i] = factory_products[i]
-     return untested_products
+    hac_te = ""
+    for i in range(len(haccp_tested)):
+        hac_te = haccp_tested[i]
+        for j in range(len(factory_products)):
+            if hac_te in factory_products.keys():
+                factory_products.pop(hac_te, None)
+    return factory_products
+print("미검사 실행")
 print(untested(factory_products,haccp_tested))
 
 # untested 항목 중 중량미달에 해당하는 품목의 갯수 
-def underweight(factory_products, hahaccp_tested, weight_standard):
-	return ""
+def underweight(factory_products, haccp_tested, weight_standard):
+    new_pro = untested(factory_products,haccp_tested)
+    count = 0
+    for i in new_pro.values():
+        if i < weight_standard:
+            count += 1
+    return count
+print("중량검사")
+print(underweight(factory_products, haccp_tested, weight_standard))
 
 # 300제 문제
 # 1번
@@ -247,5 +257,3 @@ def text_count(s, target):
 s = "banana"
 target = "a"
 print(text_count(s, target))
-
-# 문제 7: 
