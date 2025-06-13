@@ -32,4 +32,4 @@ df = sns.load_dataset("titanic")
 # print(df['embark_town'].nunique())
 
 # 10. df['who'].value_counts()를 사용해 승객 유형 분포를 확인하세요.
-print(df['who'].value_counts())
+# print(df['who'].value_counts())
