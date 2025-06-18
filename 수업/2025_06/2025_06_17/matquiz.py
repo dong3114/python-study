@@ -76,4 +76,19 @@ plt.clf()
 embarked_p = titanic['embarked'].value_counts()
 plt.barh(embarked_p.index, embarked_p.values)
 # plt.show()
-# 문제5
+# 문제5 평균 나이와 평균 요금
+mean_age_fare = titanic.groupby('pclass')[["age","fare"]].mean()
+
+plt.clf()
+
+fig, ax = plt.subplots(figsize=(8,5))
+ax.patch.set_facecolor('#a5e6b6')
+
+ax.plot(mean_age_fare.index, mean_age_fare["age"], marker="^", label="평균 나이")
+ax.plot(mean_age_fare.index, mean_age_fare["fare"], marker="o", label="평균 요금")
+ax.set_title("객실 등급별 평균 나이와 평균 요금")
+ax.set_xlabel("객실 등급 (pclass)")
+ax.set_ylabel("값")
+ax.legend()
+plt.tight_layout()
+plt.show()
