@@ -1,5 +1,5 @@
 '''
-C, A, A, B, C, D, C, C
+B, C, A, B, C, D, C, C
 '''
 
 import seaborn as sns
@@ -44,5 +44,6 @@ sns.kdeplot(data=titanic, x="fare_zscore", fill=True)
 plt.title("Z-score로 표준화된 fear 분포")
 plt.xlabel("표준화된 fare")
 plt.ylabel("밀도")
-plt.show()
+# plt.show()
+
 
