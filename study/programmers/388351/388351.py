@@ -9,20 +9,23 @@ from datetime import time
 # return: 상품을 받을 직원 수
 def solution(schedules, timelogs, startday):
     answer = 0
-    day = {1:'월요일', 2:'화요일', 3:'수요일', 4:'목요일', 5:'금요일', 6:'토요일', 7:'일요일'}
-    s_day = day.get(startday)
-
+    day_list = ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일']
+    s_day = day_list[startday-1]
+    schedules = si_bun(schedules)
+    for i in range(len(timelogs)):
+        timelogs[i] = si_bun(timelogs[i])
+    
+    
 
     return answer
 
-def si_bun(timelog):
-    answer = []
-    for num in timelog:
+def si_bun(lit):
+    result = []
+    for num in lit:
         hour = num // 100
         minute = num % 100
-        t = time(hour, minute)
-        answer.append(t)
-    return answer
+        result.append(time(hour, minute))
+    return result
 
 schedules = [700,800,1100]
 timelogs = [[710, 2359, 1050, 700, 650, 631, 659], 
